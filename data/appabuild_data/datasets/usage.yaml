@@ -1,0 +1,45 @@
+name: usage
+location: RER
+type: process
+unit: unit
+amount: 1
+properties:
+  element: "usage"
+parameters:
+- lifespan # years
+- active_power # mW
+- idle_power # mW
+- CIS_power
+- active_ratio
+- use_location
+include_in_tree: True
+comment: "Power consumption in use phase"
+exchanges:
+- database: user_database
+  name: electricity_use_phase
+  type: technosphere
+  unit: kilowatt hour
+  amount: 0.000001*lifespan*365.25*24*(((active_ratio*active_power) + ((1-active_ratio)*idle_power)) + CIS_power)
+  switch:
+    name: use_location
+    options:
+    - name: FR
+      input:
+        database: ecoinvent-3.11-cutoff
+        name: market (group )?for electricity, low voltage
+        location: FR
+    - name: EU
+      input:
+        database: ecoinvent-3.11-cutoff
+        name: market (group )?for electricity, low voltage
+        location: RER
+    - name: TW
+      input:
+        database: ecoinvent-3.11-cutoff
+        name: market (group )?for electricity, low voltage
+        location: TW
+    - name: CN
+      input:
+        database: ecoinvent-3.11-cutoff
+        name: market (group )?for electricity, low voltage
+        location: CN

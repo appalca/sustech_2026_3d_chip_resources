@@ -1,0 +1,25 @@
+# Usage
+active_power: 122.5
+active_ratio: 1
+CIS_power: 0
+lifespan: 3
+use_location: EU
+
+# Manufacturing
+area: 62.021
+manuf_location: TW
+defect_density: 0.001
+## Wafer
+first_layer_node: 65
+second_layer_node: 22
+third_layer_node: 22
+three_layers: 0
+## Package
+io: 100
+## Assembly
+hybrid_bondings: 1
+tsvs: 0
+grindings: 1
+
+## Performance
+Mpixel: 12.3

@@ -1,0 +1,33 @@
+# -----------------------------------------------------------------------
+# Copyright 2026 CEA-List
+# CC BY-NC-ND
+# -----------------------------------------------------------------------
+name: package_gold
+location: TW
+type: process
+unit: unit
+amount: 1
+properties:
+  element: "package"
+parameters:
+- leads
+- package_type
+include_in_tree: True
+comment: ""
+exchanges:
+- database: user_database
+  name: package_gold_extraction
+  type: technosphere
+  switch:
+    name: package_type
+    options:
+    - name: qfp_qfn
+      amount: 0.0151 * leads / 1000000 # has to be converted in kg
+    - name: qfp
+      amount: 0.0152 * leads / 1000000
+    - name: qfn
+      amount: 0.0135 * leads / 1000000
+  input:
+    database: ecoinvent-3.11-cutoff
+    name: market for gold
+    location: GLO

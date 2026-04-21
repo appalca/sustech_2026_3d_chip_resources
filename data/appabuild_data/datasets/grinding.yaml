@@ -1,0 +1,21 @@
+database: user_database
+name: grinding
+location: TW
+unit: unit
+parameters:
+- manuf_location
+type: process
+amount: 1.0
+properties:
+  element: "assembly"
+include_in_tree: True
+comment: "Grinding impact data for a 300mm wafer"
+exchanges:
+- database: user_database
+  amount: 2.24
+  name: grinding
+  type: technosphere
+  input:
+    database: user_database
+    uuid: grinding_200mm
+  

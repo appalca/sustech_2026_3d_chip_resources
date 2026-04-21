@@ -1,0 +1,44 @@
+# -----------------------------------------------------------------------
+# Copyright 2026 CEA-List
+# CC BY-NC-ND
+# -----------------------------------------------------------------------
+name: package_electricity
+location: TW
+type: process
+unit: unit
+amount: 1
+properties:
+  element: "package"
+parameters:
+- area #mm²
+- manuf_location
+include_in_tree: True
+comment: "We follow the strong assumption that impacts of a package is essentially driven by its quantity of gold, and that this quantity of gold is correlated with the number of leads (cf. Kuo et al. (2020). Life cycle impact assessment of semiconductor packaging technologies with emphasis on ball grid array.) We model the quantity of gold function of the number of leads using STM32 BoM."
+exchanges:
+- database: user_database
+  name: package_manufacturing_electricity
+  type: technosphere
+  amount: area * 0.0034
+  switch:
+    name: manuf_location
+    options:
+    - name: FR
+      input:
+        database: ecoinvent-3.11-cutoff
+        name: market (group )?for electricity, medium voltage
+        location: FR
+    - name: EU
+      input:
+        database: ecoinvent-3.11-cutoff
+        name: market (group )?for electricity, medium voltage
+        location: RER
+    - name: TW
+      input:
+        database: ecoinvent-3.11-cutoff
+        name: market (group )?for electricity, medium voltage
+        location: TW
+    - name: CN
+      input:
+        database: ecoinvent-3.11-cutoff
+        name: market (group )?for electricity, medium voltage
+        location: CN

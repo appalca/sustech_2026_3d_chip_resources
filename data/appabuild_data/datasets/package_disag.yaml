@@ -1,0 +1,81 @@
+# -----------------------------------------------------------------------
+# Copyright 2026 CEA-List
+# CC BY-NC-ND
+# -----------------------------------------------------------------------
+name: package_disag
+location: TW
+type: process
+unit: unit
+amount: 1
+properties:
+  element: "package"
+parameters:
+- leads
+- manuf_location
+- package_type
+include_in_tree: True
+comment: "We follow the assumption that impacts of a package is essentially driven by its quantity of metals and electricity, and that the quantity of metals is correlated with the number of leads (cf. Kuo et al. (2020). Life cycle impact assessment of semiconductor packaging technologies with emphasis on ball grid array.) We model the quantity of gold function of the number of leads using STM32 BoM."
+exchanges:
+- database: user_database
+  name: package_gold
+  type: technosphere
+  amount: 1
+  input:
+    database: user_database
+    uuid: package_gold
+- database: user_database
+  name: package_silver
+  type: technosphere
+  amount: 1
+  input:
+    database: user_database
+    uuid: package_silver
+- database: user_database
+  name: package_copper
+  type: technosphere
+  amount: 1
+  input:
+    database: user_database
+    uuid: package_copper
+- database: user_database
+  name: package_tin
+  type: technosphere
+  amount: 1
+  input:
+    database: user_database
+    uuid: package_tin
+- database: user_database
+  name: package_nickel
+  type: technosphere
+  amount: 1
+  input:
+    database: user_database
+    uuid: package_nickel
+- database: user_database
+  name: package_palladium
+  type: technosphere
+  amount: 1
+  input:
+    database: user_database
+    uuid: package_palladium
+- database: user_database
+  name: package_iron
+  type: technosphere
+  amount: 1
+  input:
+    database: user_database
+    uuid: package_iron
+- database: user_database
+  name: package_zinc
+  type: technosphere
+  amount: 1
+  input:
+    database: user_database
+    uuid: package_zinc
+- database: user_database
+  amount: 1
+  name: package_manufacturing_electricity
+  type: technosphere
+  input:
+    database: user_database
+    uuid: package_electricity

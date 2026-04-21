@@ -1,0 +1,87 @@
+# -----------------------------------------------------------------------
+# Modelled from NégaOctet data with specific CEA-List authorization for exploitation.
+# If anyone is interested in obtaining an exploitation license, please contact NégaOctet.
+# Copyright 2026 CEA-List
+# CC BY-NC-ND
+# -----------------------------------------------------------------------
+name: logic_wafer_manufacturing
+location: GLO
+type: process
+unit: unit # for a 300mm wafer
+amount: 1
+parameters:
+- manuf_location
+- masks
+properties:
+  element: "cmos_wafers"
+include_in_tree: True
+comment: "Modeled from Négaoctet data with their agreement."
+exchanges:
+- database: user_database
+  name: cmos_wafer_production
+  type: technosphere
+  switch:
+    name: manuf_location
+    options: # impact originally is per m², and we want it per 300 mm wafer
+    - name: FR
+      amount: "(1.0675*masks + 3.3675) * (3.14159 * pow(0.15, 2))"
+    - name: EU
+      amount: "(1.8992*masks + 3.3254) * (3.14159 * pow(0.15, 2))"
+    - name: TW
+      amount: "(3.4312*masks + 3.6538) * (3.14159 * pow(0.15, 2))"
+    - name: CN
+      amount: "(4.1525*masks + 3.4406) * (3.14159 * pow(0.15, 2))"
+  input:
+    database: impact_proxies
+    uuid: "('EF v3.0', 'acidification', 'accumulated exceedance (AE)')_technosphere_proxy"
+- database: user_database
+  name: cmos_wafer_production
+  type: technosphere
+  switch:
+    name: manuf_location
+    options: # impact originally is per m², and we want it per 300 mm wafer
+    - name: FR
+      amount: "(303.11*masks + 600.84) * (3.14159 * pow(0.15, 2))"
+    - name: EU
+      amount: "(426.68*masks + 544.88) * (3.14159 * pow(0.15, 2))"
+    - name: TW
+      amount: "(623.77*masks + 612.3) * (3.14159 * pow(0.15, 2))"
+    - name: CN
+      amount: "(697.27*masks + 604.86) * (3.14159 * pow(0.15, 2))"
+  input:
+    database: impact_proxies
+    uuid: "('EF v3.0', 'climate change', 'global warming potential (GWP100)')_technosphere_proxy"
+- database: user_database
+  name: cmos_wafer_production
+  type: technosphere
+  switch:
+    name: manuf_location
+    options: # impact originally is per m², and we want it per 300 mm wafer
+    - name: FR
+      amount: "(637.39*masks + 35.262) * (3.14159 * pow(0.15, 2))"
+    - name: EU
+      amount: "(234.5*masks) * (3.14159 * pow(0.15, 2))"
+    - name: TW
+      amount: "(5.2434*masks + 3.9199) * (3.14159 * pow(0.15, 2))"
+    - name: CN
+      amount: "(6.5353*masks + 3.7932) * (3.14159 * pow(0.15, 2))"
+  input:
+    database: impact_proxies
+    uuid: "('EF v3.0', 'ionising radiation: human health', 'human exposure efficiency relative to u235')_technosphere_proxy"
+- database: user_database
+  name: cmos_wafer_production
+  type: technosphere
+  switch:
+    name: manuf_location
+    options: # impact originally is per m², and we want it per 300 mm wafer
+    - name: FR
+      amount: "(1.104e-5*masks + 1.774e-5) * (3.14159 * pow(0.15, 2))"
+    - name: EU
+      amount: "(1.278e-5*masks + 1.73e-5) * (3.14159 * pow(0.15, 2))"
+    - name: TW
+      amount: "(1.893e-5*masks + 1.99e-5) * (3.14159 * pow(0.15, 2))"
+    - name: CN
+      amount: "(2.267e-5*masks + 1.946e-5) * (3.14159 * pow(0.15, 2))"
+  input:
+    database: impact_proxies
+    uuid: "('EF v3.0', 'particulate matter formation', 'impact on human health')_technosphere_proxy"

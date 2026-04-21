@@ -1,0 +1,4 @@
+name,active_ratio,lifespan
+"Default",1,3
+"Automotive",0.037,20
+"Surveillance camera",1,10

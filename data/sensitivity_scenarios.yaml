@@ -1,0 +1,15 @@
+- parameter: "manuf_location"
+  reference: "TW"
+  target: "EU"
+- parameter: "use_location"
+  reference: "EU"
+  target: "TW"
+- parameter: "defect_density"
+  reference: "0.0005*(2 + three_layers)"
+  target: "0.001*(2 + three_layers + hybrid_bondings + tsvs + grindings)"
+- parameter: "io"
+  reference: 50
+  target: 150
+- parameter: "package_type"
+  reference: "qfp"
+  target: "qfn"

@@ -1,0 +1,65 @@
+name: stacked_wafer
+location: EU
+type: process
+unit: unit
+amount: 1
+parameters:
+- manuf_location
+- three_layers
+- first_layer_masks
+- second_layer_masks
+- third_layer_masks
+- hybrid_bondings
+- tsvs
+- grindings
+comment: ""
+include_in_tree: True
+exchanges:
+- database: user_database
+  name: first_wafer
+  type: technosphere
+  amount: 1
+  parameters_matching:
+    masks: first_layer_masks
+  input:
+    database: user_database
+    uuid: logic_wafer_manufacturing
+- database: user_database
+  name: second_wafer
+  type: technosphere
+  amount: 1
+  parameters_matching:
+    masks: second_layer_masks
+  input:
+    database: user_database
+    uuid: logic_wafer_manufacturing
+- database: user_database
+  name: third_wafer
+  type: technosphere
+  amount: "three_layers"
+  parameters_matching:
+    masks: third_layer_masks
+  input:
+    database: user_database
+    uuid: logic_wafer_manufacturing
+- database: user_database
+  name: hybrid_bondings
+  type: technosphere
+  amount: "hybrid_bondings"
+  input:
+    database: user_database
+    uuid: hb
+- database: user_database
+  name: tsv
+  type: technosphere
+  amount: "tsvs"
+  input:
+    database: user_database
+    uuid: tsv
+- database: user_database
+  name: grinding
+  type: technosphere
+  amount: "grindings"
+  input:
+    database: user_database
+    uuid: grinding

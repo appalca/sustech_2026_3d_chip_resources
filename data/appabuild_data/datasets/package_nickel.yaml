@@ -1,0 +1,33 @@
+# -----------------------------------------------------------------------
+# Copyright 2026 CEA-List
+# CC BY-NC-ND
+# -----------------------------------------------------------------------
+name: package_nickel
+location: TW
+type: process
+unit: unit
+amount: 1
+properties:
+  element: "package"
+parameters:
+- leads
+- package_type
+include_in_tree: True
+comment: ""
+exchanges:
+- database: user_database
+  name: package_nickel_extraction
+  type: technosphere
+  switch:
+    name: package_type
+    options:
+    - name: qfp_qfn
+      amount: 0.0496 * leads / 1000000
+    - name: qfp
+      amount: 0.051 * leads / 1000000
+    - name: qfn
+      amount: 0.026 * leads / 1000000
+  input:
+    name: market for nickel, class 1
+    database: ecoinvent-3.11-cutoff
+    location: GLO

@@ -1,0 +1,72 @@
+# -----------------------------------------------------------------------
+# These LCA results originate from the IRT NANOELEC Displed program.
+# Please cite: Holo, Antonin, et al. "45‐4: MicroLED Display Life Cycle Assessment."
+# SID Symposium Digest of Technical Papers. Vol. 54. No. 1. 2023.
+#
+# Copyright 2026 CEA-Leti
+# CC BY-NC-ND
+# -----------------------------------------------------------------------
+database: user_database
+name: hb_200mm
+location: TW
+unit: unit
+type: process
+parameters:
+- manuf_location
+amount: 1.0
+include_in_tree: False
+comment: "Hybrid bonding impact data for a 200mm wafer"
+exchanges:
+- database: impact_proxies
+  name: Impact proxy for PEF-AP
+  type: technosphere
+  switch:
+    name: manuf_location
+    options:
+    - name: TW
+      amount: 0.1684757
+    - name: EU
+      amount: 0.13693666
+  input:
+    database: impact_proxies
+    uuid: ('EF v3.0', 'acidification', 'accumulated exceedance (AE)')_technosphere_proxy
+- database: impact_proxies
+  name: Impact proxy for PEF-GWP
+  type: technosphere
+  switch:
+    name: manuf_location
+    options:
+    - name: TW
+      amount: 38.265114
+    - name: EU
+      amount: 26.75556
+  input:
+    database: impact_proxies
+    uuid: ('EF v3.0', 'climate change', 'global warming potential (GWP100)')_technosphere_proxy
+- database: impact_proxies
+  name: Impact proxy for PEF-PM
+  type: technosphere
+  switch:
+    name: manuf_location
+    options:
+    - name: TW
+      amount: 7.45e-07
+    - name: EU
+      amount: 6.70e-07
+  input:
+    database: impact_proxies
+    uuid: ('EF v3.0', 'particulate matter formation', 'impact on human health')_technosphere_proxy
+- database: impact_proxies
+  name: Impact proxy for PEF-IR
+  type: technosphere
+  switch:
+    name: manuf_location
+    options:
+    - name: TW
+      amount: 4.1611111
+    - name: EU
+      amount: 6.2160524
+  input:
+    database: impact_proxies
+    uuid: "('EF v3.0', 'ionising radiation: human health', 'human exposure efficiency
+      relative to u235')_technosphere_proxy"

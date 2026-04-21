@@ -1,0 +1,115 @@
+scope:
+    fu:
+        name: "multi_layer_CIS"
+        database: "user_database"
+    methods:
+        - "EFV3_CLIMATE_CHANGE"
+        - "EFV3_IONISING_RADIATION"
+        - "EFV3_PARTICULATE_MATTER_FORMATION"
+        - "EFV3_ACIDIFICATION"
+model:
+    path: "."
+    name: "multi_layer_CIS"
+    compile: True
+    metadata:
+      author:
+        name: Maxime PERALTA
+        organization: CEA
+        mail: maxime.peralta@cea.fr
+      reviewer:
+        name: ""
+        organization: ""
+        mail: ""
+      report:
+        link: "Péralta, M., Billaud, M. (2026). Life Cycle Assessment of 3D Stacked Multi-Chip Assemblies: Comparison of Three Multi-Layer CMOS Image Sensors. In 2026 IEEE Conference on Technologies for Sustainability (SusTech). IEEE."
+        description: "Impact model for a 3D-stacked chip (2 or 3 layers of silicon. Cradle-to-gate. Please refer to the paper for more information."
+        date: 20/04/2026
+        version: "3"
+        license: proprietary
+        appabuild_version: "0.4.3"
+    parameters:
+      - name: area
+        default: 16.45
+        type: float
+        pm: 0
+      - name: manuf_location
+        type: enum
+        default: TW
+        weights:
+          CN: 0
+          TW: 1
+          EU: 1
+          FR: 0
+      - name: three_layers
+        type: float
+        default: 1
+        pm: 0
+      - name: first_layer_node
+        default: 40
+        type: float
+        pm: 0
+      - name: second_layer_node
+        default: 28
+        type: float
+        pm: 0
+      - name: third_layer_node
+        default: 28
+        type: float
+        pm: 0
+      - name: hybrid_bondings
+        default: 2
+        type: float
+        pm: 0
+      - name: tsvs
+        default: 2
+        type: float
+        pm: 0
+      - name: grindings
+        default: 2
+        type: float
+        pm: 0
+      - name: defect_density
+        default: 0.0015
+        type: float
+        min: 0.001
+        max: 0.01
+      - name: io
+        default: 100
+        type: float
+        pm_perc: 0.25
+      - name: lifespan
+        default: 3.0
+        type: float
+        pm: 0
+      - name: active_power
+        default: 55
+        type: float
+        pm: 0
+      - name: idle_power
+        default: 0
+        type: float
+        pm: 0
+      - name: CIS_power
+        default: 0
+        type: float
+        min: 0
+        max: 1000
+      - name: active_ratio
+        default: 1
+        type: float
+        pm: 0
+      - name: use_location
+        type: enum
+        default: EU
+        weights:
+          CN: 0
+          TW: 1
+          EU: 1
+          FR: 0
+      - name: package_type
+        type: enum
+        default: qfp_qfn
+        weights:
+          qfp_qfn: 1
+          qfp: 0
+          qfn: 0

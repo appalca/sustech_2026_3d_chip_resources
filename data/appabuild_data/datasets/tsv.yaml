@@ -1,0 +1,21 @@
+database: user_database
+name: tsv
+location: TW
+unit: unit
+parameters:
+- manuf_location
+type: process
+amount: 1.0
+properties:
+  element: "assembly"
+include_in_tree: True
+comment: "TSV impact data for a 300mm wafer"
+exchanges:
+- database: user_database
+  amount: 2.24
+  name: tsv
+  type: technosphere
+  input:
+    database: user_database
+    uuid: tsv_200mm
+  

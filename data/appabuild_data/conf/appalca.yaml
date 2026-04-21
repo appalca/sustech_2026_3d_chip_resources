@@ -1,0 +1,9 @@
+project_name: 'bw25_multi_layer_cis'
+replace_bg: False
+databases:
+  ecoinvent:
+    version: "3.11"
+    system_model: cutoff
+  foreground:
+    name: user_database
+    path: 'data/appabuild_data/datasets/'

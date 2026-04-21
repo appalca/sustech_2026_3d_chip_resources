@@ -1,0 +1,35 @@
+name: manufacturing
+location: EU
+type: process
+unit: unit
+amount: 1
+parameters:
+- area # mm²
+- manuf_location
+- layer_three
+- first_layer_node
+- second_layer_node
+- third_layer_node
+- hybrid_bondings
+- tsvs
+- grindings
+- defect_density # defect/mm²
+- leads
+- package_type
+comment: ""
+include_in_tree: True
+exchanges:
+- database: user_database
+  name: cmos_wafers
+  type: technosphere
+  amount: 1
+  input:
+    database: user_database
+    uuid: stacked_dies
+- database: user_database
+  name: package_disag
+  type: technosphere
+  amount: 1
+  input:
+    database: user_database
+    uuid: package_disag

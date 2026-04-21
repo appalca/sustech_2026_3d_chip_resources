@@ -1,0 +1,43 @@
+name: multi_layer_CIS
+location: FR
+type: process
+unit: unit
+amount: 1
+parameters:
+- area # mm²
+- manuf_location
+- three_layers
+- first_layer_node
+- second_layer_node
+- third_layer_node
+- defect_density # defect/mm²
+- io
+- lifespan # years
+- active_power # mW
+- idle_power # mW
+- active_ratio
+- CIS_power
+- use_location
+- hybrid_bondings
+- tsvs
+- grindings
+- package_type
+comment: ""
+include_in_tree: True
+exchanges:
+- database: user_database
+  name: manufacturing
+  type: technosphere
+  amount: 1
+  parameters_matching:
+    leads: io
+  input:
+    database: user_database
+    uuid: manufacturing
+- database: user_database
+  name: usage
+  type: technosphere
+  amount: 1
+  input:
+    database: user_database
+    uuid: usage

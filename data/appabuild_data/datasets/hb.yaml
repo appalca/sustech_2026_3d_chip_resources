@@ -1,0 +1,21 @@
+database: user_database
+name: hb
+location: FR
+parameters:
+- manuf_location
+unit: unit
+type: process
+amount: 1.0
+properties:
+  element: "assembly"
+include_in_tree: True
+comment: "Hybrid bonding impact data for a 300mm wafer"
+exchanges:
+- database: user_database
+  name: hb
+  type: technosphere
+  amount: 2.24
+  input:
+    database: user_database
+    uuid: hb_200mm
+  

@@ -13,7 +13,7 @@ This notably stands for the 3D integration processes impact data provided by the
 Holo, Antonin, et al. "45‐4: MicroLED Display Life Cycle Assessment." SID Symposium Digest of Technical Papers. Vol. 54. No. 1. 2023.
 ```
 
-This data has been provided on this repository for information purposes. The authors would like to remind that this data is R&D data which is not certified in any way.
+This data has been provided in this repository for information purposes. The authors would like to remind that this data is R&D data which is not certified in any way.
 
 ## Citation
 For any use of the data, scripts or results in this repo, please cite:
@@ -59,4 +59,4 @@ Then set the build impact model (`multi_layer_CIS.yaml`) in the `data/` folder.
 A carbon-only version of this impact model, using only public data sources, is currently under construction, and will be shared in this repository when available for those who don't have an EcoInvent license.
 
 ### Run the scripts
-You can then run any of the python script placed in the root of this repository to produce the corresponding feature.
+You can then run any of the python script placed in the root of this repository to produce the corresponding figure.
